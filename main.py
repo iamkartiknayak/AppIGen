@@ -1,5 +1,4 @@
-from PyQt6 import QtWidgets,  uic
-from PyQt6.QtWidgets import QApplication
+from PyQt6 import QtWidgets, uic
 from sys import argv
 
 from fetch_image import select_image

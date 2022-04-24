@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import QFileDialog
 
 
 from update_status_info import update_status
-from data_handler import set_project_path, get_project_path
+from data_handler import set_project_path
 
 android_app_path = r'/android/app/src/main/res'
 ios_app_path = r'/ios/Runner/Assets.xcassets/AppIcon.appiconset'
@@ -16,7 +16,7 @@ main_file_exists = False
 pubspec_yaml_exists = False
 
 
-def validate_project_folder(self, project_path):
+def validate_project_folder(project_path):
     global android_path_exists, ios_path_exists, main_file_exists, pubspec_yaml_exists
 
     android_path_exists = True if os.path.exists(
@@ -49,7 +49,7 @@ def select_project(self):
     if selected_project_path != '':
         self.label_status.setText('Validating project folder...')
         is_project_folder_valid = validate_project_folder(
-            self, selected_project_path)
+            selected_project_path)
 
         if is_project_folder_valid:
             set_project_path(self, selected_project_path)

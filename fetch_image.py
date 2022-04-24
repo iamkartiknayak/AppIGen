@@ -1,9 +1,8 @@
 from PyQt6.QtWidgets import QFileDialog
-from PyQt6.QtGui import QPixmap
 from PIL import Image
 
 from update_status_info import update_status
-from data_handler import set_image_path, get_image_status, get_project_status, image_selected, project_selected
+from data_handler import set_image_path
 
 
 supported_image_type = (

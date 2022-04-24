@@ -1,5 +1,4 @@
 from PyQt6 import QtWidgets, QtGui
-from PyQt6.QtWidgets import QDialog
 
 
 def show_dialog(self, message):
