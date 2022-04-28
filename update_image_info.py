@@ -16,7 +16,7 @@ def add_info(self, image_path):
     image_resolution = image.size
     image.close()
 
-    image_info = f"<html><head/><body><p>{image_name}</p><p>{image_size}</p><p>{image_type}</p>" \
+    image_info = f"<html><head/><body><p>{image_name}</p><p>{image_size}{size_unit}</p><p>{image_type}</p>" \
                  f"<p>{image_resolution[0]} x {image_resolution[1]}" f"</p></body></html>"
     self.label_img_info.setText(image_info)
 
