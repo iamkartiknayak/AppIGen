@@ -5,10 +5,10 @@ from PyQt6.QtWidgets import QFileDialog
 from update_status_info import update_status
 from data_handler import set_project_path
 
-android_app_path = r'/android/app/src/main/res'
-ios_app_path = r'/ios/Runner/Assets.xcassets/AppIcon.appiconset'
-main_file_path = r'/lib/main.dart'
-pubspec_yaml_file_path = r'/pubspec.yaml'
+android_app_path = r"/android/app/src/main/res"
+ios_app_path = r"/ios/Runner/Assets.xcassets/AppIcon.appiconset"
+main_file_path = r"/lib/main.dart"
+pubspec_yaml_file_path = r"/pubspec.yaml"
 
 android_path_exists = False
 ios_path_exists = False
@@ -20,16 +20,16 @@ def validate_project_folder(project_path):
     global android_path_exists, ios_path_exists, main_file_exists, pubspec_yaml_exists
 
     android_path_exists = True if os.path.exists(
-        f'{project_path}{android_app_path}') else False
+        f"{project_path}{android_app_path}") else False
 
     ios_path_exists = True if os.path.exists(
-        f'{project_path}{ios_app_path}') else False
+        f"{project_path}{ios_app_path}") else False
 
     main_file_exists = True if os.path.exists(
-        f'{project_path}{main_file_path}') else False
+        f"{project_path}{main_file_path}") else False
 
     pubspec_yaml_exists = True if os.path.exists(
-        f'{project_path}{pubspec_yaml_file_path}') else False
+        f"{project_path}{pubspec_yaml_file_path}") else False
 
     if android_path_exists and ios_path_exists and main_file_exists and pubspec_yaml_exists:
         return True
@@ -46,8 +46,8 @@ def select_project(self):
 
     selected_project_path = QFileDialog.getExistingDirectory(
         caption="Select Flutter Project")
-    if selected_project_path != '':
-        self.label_status.setText('Validating project folder...')
+    if selected_project_path != "":
+        self.label_status.setText("Validating project folder...")
         is_project_folder_valid = validate_project_folder(
             selected_project_path)
 
@@ -59,18 +59,18 @@ def select_project(self):
 
         elif is_project_folder_valid == None:
             self.label_status.setText(
-                'android folder doesn\'t exist or missing contents!') if not android_path_exists else None
+                "android folder doesn\"t exist or missing contents!") if not android_path_exists else None
             self.label_status.setText(
-                'ios folder doesn\'t exist or missing contents!') if not ios_path_exists else None
+                "ios folder doesn\"t exist or missing contents!") if not ios_path_exists else None
             self.label_status.setText(
-                'main.dart file in lib folder doesn\'t exist!') if not main_file_exists else None
+                "main.dart file in lib folder doesn\"t exist!") if not main_file_exists else None
             self.label_status.setText(
-                'pubspec.yaml file doesn\'t exist!') if not pubspec_yaml_exists else None
-            self.label_status.setStyleSheet('color: orange')
+                "pubspec.yaml file doesn\"t exist!") if not pubspec_yaml_exists else None
+            self.label_status.setStyleSheet("color: orange")
 
         else:
-            set_project_path(self, '')
+            set_project_path(self, "")
             update_status(self)
             self.label_status.setText(
-                'Select a valid flutter project directory')
-            self.label_status.setStyleSheet('color: orange')
+                "Select a valid flutter project directory")
+            self.label_status.setStyleSheet("color: orange")

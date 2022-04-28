@@ -11,7 +11,7 @@ from data_handler import reset_data
 class AppIGen(QtWidgets.QMainWindow):
     def __init__(self):
         super(AppIGen, self).__init__()
-        uic.loadUi('ui.ui', self)
+        uic.loadUi("ui.ui", self)
 
         self.btn_select_image.clicked.connect(self.select_source_image)
         self.btn_select_project.clicked.connect(self.select_project_folder)
@@ -29,7 +29,7 @@ class AppIGen(QtWidgets.QMainWindow):
         update_icons(self)
 
     def reset_fields(self):
-        reset_selected_data = show_dialog(self, 'Reset Selection?')
+        reset_selected_data = show_dialog(self, "Reset Selection?")
         if reset_selected_data == 1024:
             reset_data(self)
 

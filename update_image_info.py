@@ -8,9 +8,9 @@ def add_info(self, image_path):
     self.label_image_display.setPixmap(
         QPixmap(image_path).scaledToWidth(200))
     self.line_edit_image_path.setCursorPosition(0)
-    self.label_status.setText('Waiting for project folder...')
+    self.label_status.setText("Waiting for project folder...")
     image = Image.open(image_path)
-    image_name = image_path.split('/')[-1].split('.')[0]
+    image_name = image_path.split("/")[-1].split(".")[0]
     image_size, size_unit = get_image_size(image_path)
     image_type = image.format
     image_resolution = image.size
